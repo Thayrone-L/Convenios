@@ -67,7 +67,7 @@
 
                             <div class="col-md-4">
                                 <input id="pesquisa" onkeyup="pesquisaConvenio()" class="form-control"
-                                    id="exampleFormControlInput1" placeholder="pesquise por convênio/plano">
+                                    id="exampleFormControlInput1" placeholder="pesquise por plano">
                             </div>
 
                             <div class="col">
@@ -176,9 +176,13 @@
             </div>
         </div>
 
-        <div class="row g-3" >
+        <div class="row g-3" id="divResultado" style=" display:none">
             <div class="col">
-                <div class="card" id="resultado">
+                <div class="card">
+                    <h1>Resultado da busca: </h1>
+                    <div id="resultado">
+
+                    </div>
                 </div>
             </div>
         </div>
@@ -434,37 +438,45 @@
 
 
         function pesquisaConvenio() {
-           
+
             let input = document.getElementById('pesquisa').value;
             input = input.toLowerCase();
-            let x = document.getElementsByClassName('plano');
-            var newFilteredUl = document.createElement('ul');
-            
 
-            for (i = 0; i < x.length; i++) {
-                
-                if (!x[i].innerHTML.toLowerCase().includes(input)) {
+            if (input) {
+                document.querySelector("#divResultado").style.display = "";
+                let x = document.getElementsByClassName('plano');
+                var newFilteredUl = document.createElement('ul');
+                var paiLi;
+                var newLi;
+                for (i = 0; i < x.length; i++) {
                     let pai = x[i].parentElement;
-                    x[i].style.display = "none";
-                    pai.style.display = "none";
-                    
-                    
+                    if (!x[i].innerHTML.toLowerCase().includes(input)) {
+
+                        document.querySelector('#resultado').innerHTML = "";
+
+                    }
+                    else {
+
+                        pai.style.display = "";
+                        x[i].style.display = "";
+                        paiLi = document.createElement('li');
+                        newLi = document.createElement('li');
+                        newLi = x[i];
+                        paiLi = pai;
+                        newFilteredUl.appendChild(pai);
+                        newFilteredUl.appendChild(newLi);
+                    }
                 }
-                else {
-                    let pai = x[i].parentElement;
-                    pai.style.display = "";
-                    x[i].style.display = "";
-                    var paiLi = document.createElement('li');
-                    var newLi = document.createElement('li');
-                    newLi = x[i];
-                    paiLi = pai;
-                    newFilteredUl.appendChild(pai);
-                    newFilteredUl.appendChild(newLi);
-                }
+
+                document.querySelector('#resultado').appendChild(newFilteredUl);
+            } else {
+                document.querySelector("#divResultado").style.display = "none";
+                document.querySelector('#resultado').innerHTML = "";
+
             }
-
-            document.querySelector('#resultado').appendChild(newFilteredUl);
         }
+
+
 
 
     </script>
