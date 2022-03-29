@@ -176,7 +176,12 @@
             </div>
         </div>
 
-
+        <div class="row g-3" >
+            <div class="col">
+                <div class="card" id="resultado">
+                </div>
+            </div>
+        </div>
 
 
 
@@ -433,6 +438,8 @@
             let input = document.getElementById('pesquisa').value;
             input = input.toLowerCase();
             let x = document.getElementsByClassName('plano');
+            var newFilteredUl = document.createElement('ul');
+            
 
             for (i = 0; i < x.length; i++) {
                 
@@ -447,9 +454,16 @@
                     let pai = x[i].parentElement;
                     pai.style.display = "";
                     x[i].style.display = "";
-                    alert(input);
+                    var paiLi = document.createElement('li');
+                    var newLi = document.createElement('li');
+                    newLi = x[i];
+                    paiLi = pai;
+                    newFilteredUl.appendChild(pai);
+                    newFilteredUl.appendChild(newLi);
                 }
             }
+
+            document.querySelector('#resultado').appendChild(newFilteredUl);
         }
 
 
