@@ -264,7 +264,13 @@
             <div class="col">
                 <div class="card">
                     <h2>Resultado da busca: </h2>
+                    <a id="msgResultado" style="visibility: hidden; color: red;"> * Nenhum resultado, tente
+                        novamente com outros termos</a>
+
+                        <a id="msgResultado2" style="visibility: hidden; color: red;"> </a>
                     <div id="resultado">
+
+
 
                     </div>
                 </div>
@@ -507,23 +513,23 @@
     <script>
 
         class Foo {
-           constructor(filtro){
-               this.filtrado = filtro;
-           }
-           setFiltrado(filtro){
-            this.filtrado = filtro;
-           }
+            constructor(filtro) {
+                this.filtrado = filtro;
+            }
+            setFiltrado(filtro) {
+                this.filtrado = filtro;
+            }
 
             getFiltrado() {
                 return this.filtrado;
             }
-            
+
         }
-        
+
         filtra = new Foo("plano");
 
         function contaLetras() {
-            
+
             var input
             input = document.getElementById('pesquisa').value.toLowerCase();
             if (input.length < 3) {
@@ -533,7 +539,7 @@
                 document.getElementById('msgErro').style.visibility = "hidden";
             }
             console.log(filtra);
-           
+
         }
 
         function esconde(el) {
@@ -541,7 +547,7 @@
             for (let i = 0; i < accordions.length; i++) {
                 accordions[i].style.display = "none";
             }
-           
+
             filtra.setFiltrado(el);
             document.getElementById(el).style.display = "";
             pesquisaConvenio();
@@ -553,14 +559,14 @@
             for (let i = 0; i < accordions.length; i++) {
                 accordions[i].style.display = "";
             }
-           filtra.setFiltrado("plano");
-           pesquisaConvenio();
+            filtra.setFiltrado("plano");
+            pesquisaConvenio();
         }
-        
+
 
         function pesquisaConvenio() {
-            let input, x, newFilteredUl, newLi, pai, primeiroFilho, newPai, pesquisa;
-           
+            let input, x, newFilteredUl, newLi, pai, primeiroFilho, cont, pesquisa;
+            cont = 0;
             input = document.getElementById('pesquisa').value.toLowerCase();
 
             if (input.length >= 3) {
@@ -570,7 +576,7 @@
                 document.querySelector("#divResultado").style.display = "";
                 document.querySelector("#resultado").innerText = "";
                 x = document.getElementsByClassName(filtra.getFiltrado());
-                
+
                 newFilteredUl = document.createElement('ul');
                 newFilteredUl.classList.add("list-group");
 
@@ -586,7 +592,7 @@
                     else {
 
 
-
+                        cont = cont + 1;
                         newLi = document.createElement('li');
                         primeiroFilho = document.createElement('li');
                         newLi.innerHTML = x[i].innerHTML;
@@ -601,23 +607,58 @@
                 }
 
 
-
+                console.log(cont);
                 document.querySelector('#resultado').appendChild(newFilteredUl);
+                if (cont == 0) {
+                    var cont2 = 0;
+                    if (input.length >= 4) {
+                        var tenta2 = input.split("", 3);
+                        var tenta2string = tenta2.toString().replace(/,/g, "");
+                        document.getElementById('msgResultado2').style.visibility = "visible";
+                        document.getElementById('msgResultado2').innerText = "Não foi possivel localizar resultados para " + input + " mostrando resultados para " + tenta2string;
+                    
+                        for (i = 0; i < x.length; i++) {
 
-                input = null;
-                x = null;
-                newFilteredUl = null;
 
-                newLi = null;
+                            if (!x[i].innerHTML.toLowerCase().includes(tenta2string)) {
+                                console.log("caiu aqui");
+                                document.querySelector('#resultado').innerText = "";
+
+                            }
+                            else {
+
+                                console.log(tenta2string);
+                                cont2 = cont2 + 1;
+                                newLi = document.createElement('li');
+                                primeiroFilho = document.createElement('li');
+                                newLi.innerHTML = x[i].innerHTML;
+                                pai = x[i].parentElement;
+                                primeiroFilho.innerHTML = pai.firstElementChild.innerHTML;
+                                primeiroFilho.classList.add("list-group-item", "categoria");
+                                newLi.classList.add("list-group-item");
+                                newFilteredUl.appendChild(primeiroFilho);
+                                newFilteredUl.appendChild(newLi);
+
+                            }
+                        }
+
+                        document.querySelector('#resultado').appendChild(newFilteredUl);
+                        if (cont2 == 0) {
+                            document.getElementById('msgResultado2').style.visibility = "hidden";
+                            document.getElementById('msgResultado').style.visibility = "visible";
+                        }
+                    }
+                } else {
+
+                    document.getElementById('msgResultado').style.visibility = "hidden";
+
+                }
+
 
 
 
             } else {
-                input = null;
-                x = null;
-                newFilteredUl = null;
 
-                newLi = null;
                 document.querySelector("#resultado").innerText = "";
                 document.querySelector("#divResultado").style.display = "none";
             }
