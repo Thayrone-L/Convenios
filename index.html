@@ -21,11 +21,25 @@
 
         }
 
-        .btn {
+        .btn-pesquisa {
             background-color: #bc5697;
             color: #fff;
             font-weight: 1000;
             font: 1em sans-serif;
+            border: 1px solid #ffffff;
+            border-radius: 5px;
+
+
+        }
+
+        .dropdown {
+            padding: 3px;
+        }
+
+        .btn-pesquisa:hover {
+
+            color: #fff;
+
 
         }
 
@@ -44,6 +58,37 @@
             background-color: #bc569754;
             color: #44002b;
         }
+
+        .input-group-text {
+            background-color: #bc5697;
+            padding: 4px;
+
+
+        }
+
+        svg:hover,
+        :focus path {
+            animation: go-back 1s infinite alternate ease;
+        }
+
+        #pesquisa {
+            border: 1px solid #000000;
+            border-radius: 5px;
+        }
+
+        @keyframes go-back {
+            from {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.2);
+            }
+
+            to {
+                transform: scale(1);
+            }
+        }
     </style>
     <title>Consulta de Convenios</title>
 </head>
@@ -58,117 +103,156 @@
 
                         <form class="row align-items-center justify-content-between">
 
-                            <div class="col-md-6">
+                            <div class="col">
 
                                 <img src="https://i.ibb.co/y8xdrvZ/Whats-App-Image-2022-03-28-at-08-45-55.jpg"
                                     alt="Minha Figura" class="w-50 mw-100">
 
                             </div>
 
-                            <div class="col-md-4">
-                                <input id="pesquisa" onkeyup="pesquisaConvenio()" class="form-control"
-                                    id="exampleFormControlInput1" placeholder="pesquise por plano">
-                            </div>
-
                             <div class="col">
-                                <div class="dropdown">
-                                    <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
-                                        id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Convênios
-                                    </a>
 
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                        <li><a class="dropdown-item" href="#" id="menuTodos"
-                                                onclick="mostraTodos()">Todos os convenios</a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuAfresp"
-                                                onclick="esconde('AccordionAfresp')"> Afresp </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuAllianz"
-                                                onclick="esconde('AccordionAllianz')"> Allianz </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuBRDistribuidora"
-                                                onclick="esconde('AccordionBRDistribuidora')"> BR Distribuidora </a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#" id="menuBradescoSaude"
-                                                onclick="esconde('AccordionBradescoSaude')"> Bradesco Saúde </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuCaixaSeguradora"
-                                                onclick="esconde('AccordionCaixaSeguradora')"> Caixa Seguradora </a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#" id="menuCarePlus"
-                                                onclick="esconde('AccordionCarePlus')"> Care Plus </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuCassi"
-                                                onclick="esconde('AccordionCassi')"> Cassi </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuCET"
-                                                onclick="esconde('AccordionCET')"> CET </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuCNENIPEN"
-                                                onclick="esconde('AccordionCNENIPEN')"> CNEN-IPEN </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuCNUIntercambio"
-                                                onclick="esconde('AccordionCNUIntercambio')"> CNU - Intercâmbio </a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#" id="menuCNUMatriz0865"
-                                                onclick="esconde('AccordionCNUMatriz')"> CNU - Matriz (0865) </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuEconomus"
-                                                onclick="esconde('AccordionEconomus')"> Economus </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuEmbratel"
-                                                onclick="esconde('AccordionEmbratel')"> Embratel </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuFundacaoCESP"
-                                                onclick="esconde('AccordionFundacaoCESP')"> Fundação CESP </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuFundcaoSaudeItau"
-                                                onclick="esconde('AccordionFundcaoSaudeItau')"> Fundação Saúde Itaú </a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#" id="menuGamaSaude"
-                                                onclick="esconde('AccordionGamaSaude')"> Gama Saúde </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuGM"
-                                                onclick="esconde('AccordionGM')"> GM </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuIntermedica"
-                                                onclick="esconde('AccordionIntermedica')"> Intermédica </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuLifeEmpresarialSaude"
-                                                onclick="esconde('AccordionLifeEmpresarialSaude')"> Life Empresarial
-                                                Saúde </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuMediservice"
-                                                onclick="esconde('AccordionMediservice')"> Mediservice </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuMetrus"
-                                                onclick="esconde('AccordionMetrus')"> Metrus </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuNotredame"
-                                                onclick="esconde('AccordionNotredame')"> Notredame </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuOmint"
-                                                onclick="esconde('AccordionOmint')"> Omint </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuPame"
-                                                onclick="esconde('AccordionPame')"> Pame </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuPetrobras"
-                                                onclick="esconde('AccordionPetrobras')"> Petrobras </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuPlanAssisteMPDFT"
-                                                onclick="esconde('AccordionPlanAssisteMPDFT')"> Plan Assiste - MPDFT
-                                            </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuPlanAssisteMPF"
-                                                onclick="esconde('AccordionPlanAssisteMPF')"> Plan Assiste - MPF </a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#" id="menuPlanAssisteMPM"
-                                                onclick="esconde('AccordionPlanAssisteMPM')"> Plan Assiste - MPM </a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#" id="menuPlanAssisteMPT"
-                                                onclick="esconde('AccordionPlanAssisteMPT')"> Plan Assiste - MPT </a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#" id="menuPostal"
-                                                onclick="esconde('AccordionPostal')"> Postal </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuSantaCasadeMaua"
-                                                onclick="esconde('AccordionSantaCasadeMaua')"> Santa Casa de Mauá </a>
-                                        </li>
-                                        <li><a class="dropdown-item" href="#" id="menuSaudeCaixa"
-                                                onclick="esconde('AccordionSaudeCaixa')"> Saúde Caixa </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuSompoSaude"
-                                                onclick="esconde('AccordionSompoSaude')"> Sompo Saúde </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuSulAmerica"
-                                                onclick="esconde('AccordionSulAmerica')"> Sul América </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuTelos"
-                                                onclick="esconde('AccordionTelos')"> Telos </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuUnafisco"
-                                                onclick="esconde('AccordionUnafisco')"> Unafisco </a></li>
-                                        <li><a class="dropdown-item" href="#" id="menuUsiSaude"
-                                                onclick="esconde('AccordionUsiSaude')"> Usi Saúde </a></li>
+                                <div class="input-group">
+
+                                    <input id="pesquisa" onkeyup="contaLetras()" class="form-control"
+                                        id="exampleFormControlInput1" placeholder="pesquise por plano">
+                                    <div class="input-group-text" id="btnGroupAddon">
+                                        <button type="button" onclick="pesquisaConvenio()" class="btn btn-pesquisa">
+                                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="25"
+                                                height="25" viewBox="0 0 50 50" style=" fill:#ffffff;">
+                                                <path
+                                                    d="M 21 3 C 11.621094 3 4 10.621094 4 20 C 4 29.378906 11.621094 37 21 37 C 24.710938 37 28.140625 35.804688 30.9375 33.78125 L 44.09375 46.90625 L 46.90625 44.09375 L 33.90625 31.0625 C 36.460938 28.085938 38 24.222656 38 20 C 38 10.621094 30.378906 3 21 3 Z M 21 5 C 29.296875 5 36 11.703125 36 20 C 36 28.296875 29.296875 35 21 35 C 12.703125 35 6 28.296875 6 20 C 6 11.703125 12.703125 5 21 5 Z">
+                                                </path>
+                                            </svg>
+                                            Pesquisar</button>
+                                        <div class="dropdown">
+                                            <a class="btn btn-pesquisa dropdown-toggle" href="#" role="button"
+                                                id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                                <svg xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                    style=" fill:#ffffff;" id="mdi-filter-outline" width="24"
+                                                    height="24" viewBox="0 0 24 24">
+                                                    <path
+                                                        d="M15,19.88C15.04,20.18 14.94,20.5 14.71,20.71C14.32,21.1 13.69,21.1 13.3,20.71L9.29,16.7C9.06,16.47 8.96,16.16 9,15.87V10.75L4.21,4.62C3.87,4.19 3.95,3.56 4.38,3.22C4.57,3.08 4.78,3 5,3V3H19V3C19.22,3 19.43,3.08 19.62,3.22C20.05,3.56 20.13,4.19 19.79,4.62L15,10.75V19.88M7.04,5L11,10.06V15.58L13,17.58V10.05L16.96,5H7.04Z" />
+                                                </svg>
+                                            </a>
+
+                                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                                <li><a class="dropdown-item" href="#" id="menuTodos"
+                                                        onclick="mostraTodos()">Todos os convenios</a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuAfresp"
+                                                        onclick="esconde('Afresp')"> Afresp </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuAllianz"
+                                                        onclick="esconde('Allianz')"> Allianz </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuBRDistribuidora"
+                                                        onclick="esconde('BRDistribuidora')"> BR Distribuidora
+                                                    </a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#" id="menuBradescoSaude"
+                                                        onclick="esconde('BradescoSaude')"> Bradesco Saúde </a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#" id="menuCaixaSeguradora"
+                                                        onclick="esconde('CaixaSeguradora')"> Caixa Seguradora
+                                                    </a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#" id="menuCarePlus"
+                                                        onclick="esconde('CarePlus')"> Care Plus </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuCassi"
+                                                        onclick="esconde('Cassi')"> Cassi </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuCET"
+                                                        onclick="esconde('CET')"> CET </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuCNENIPEN"
+                                                        onclick="esconde('CNENIPEN')"> CNEN-IPEN </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuCNUIntercambio"
+                                                        onclick="esconde('CNUIntercambio')"> CNU - Intercâmbio
+                                                    </a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#" id="menuCNUMatriz0865"
+                                                        onclick="esconde('CNUMatriz')"> CNU - Matriz (0865)
+                                                    </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuEconomus"
+                                                        onclick="esconde('Economus')"> Economus </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuEmbratel"
+                                                        onclick="esconde('Embratel')"> Embratel </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuFundacaoCESP"
+                                                        onclick="esconde('FundacaoCESP')"> Fundação CESP </a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#" id="menuFundcaoSaudeItau"
+                                                        onclick="esconde('FundcaoSaudeItau')"> Fundação Saúde
+                                                        Itaú </a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#" id="menuGamaSaude"
+                                                        onclick="esconde('GamaSaude')"> Gama Saúde </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuGM"
+                                                        onclick="esconde('GM')"> GM </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuIntermedica"
+                                                        onclick="esconde('Intermedica')"> Intermédica </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuLifeEmpresarialSaude"
+                                                        onclick="esconde('LifeEmpresarialSaude')"> Life
+                                                        Empresarial
+                                                        Saúde </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuMediservice"
+                                                        onclick="esconde('Mediservice')"> Mediservice </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuMetrus"
+                                                        onclick="esconde('Metrus')"> Metrus </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuNotredame"
+                                                        onclick="esconde('Notredame')"> Notredame </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuOmint"
+                                                        onclick="esconde('Omint')"> Omint </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuPame"
+                                                        onclick="esconde('Pame')"> Pame </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuPetrobras"
+                                                        onclick="esconde('Petrobras')"> Petrobras </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuPlanAssisteMPDFT"
+                                                        onclick="esconde('PlanAssisteMPDFT')"> Plan Assiste -
+                                                        MPDFT
+                                                    </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuPlanAssisteMPF"
+                                                        onclick="esconde('PlanAssisteMPF')"> Plan Assiste - MPF
+                                                    </a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#" id="menuPlanAssisteMPM"
+                                                        onclick="esconde('PlanAssisteMPM')"> Plan Assiste - MPM
+                                                    </a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#" id="menuPlanAssisteMPT"
+                                                        onclick="esconde('PlanAssisteMPT')"> Plan Assiste - MPT
+                                                    </a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#" id="menuPostal"
+                                                        onclick="esconde('Postal')"> Postal </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuSantaCasadeMaua"
+                                                        onclick="esconde('SantaCasadeMaua')"> Santa Casa de
+                                                        Mauá </a>
+                                                </li>
+                                                <li><a class="dropdown-item" href="#" id="menuSaudeCaixa"
+                                                        onclick="esconde('SaudeCaixa')"> Saúde Caixa </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuSompoSaude"
+                                                        onclick="esconde('SompoSaude')"> Sompo Saúde </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuSulAmerica"
+                                                        onclick="esconde('SulAmerica')"> Sul América </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuTelos"
+                                                        onclick="esconde('Telos')"> Telos </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuUnafisco"
+                                                        onclick="esconde('Unafisco')"> Unafisco </a></li>
+                                                <li><a class="dropdown-item" href="#" id="menuUsiSaude"
+                                                        onclick="esconde('UsiSaude')"> Usi Saúde </a></li>
 
 
-                                    </ul>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
+
+
+                                <a id="msgErro" style="visibility: hidden; color: red;"> * Digite pelo menos 3
+                                    caracteres na
+                                    pesquisa </a>
+
+
                             </div>
+
+
 
                         </form>
                     </div>
@@ -179,7 +263,7 @@
         <div class="row g-3" id="divResultado" style=" display:none">
             <div class="col">
                 <div class="card">
-                    <h1>Resultado da busca: </h1>
+                    <h2>Resultado da busca: </h2>
                     <div id="resultado">
 
                     </div>
@@ -194,7 +278,7 @@
                 <div class="card">
 
                     <div class="accordion" id="accordiAfrespxample">
-                        <div class="accordion-item" id="AccordionAfresp">
+                        <div class="accordion-item" id="Afresp">
                             <!--Afresp-->
                             <h2 class="accordion-header" id="headingAfresp">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -208,13 +292,13 @@
                                 <div class="accordion-body">
                                     <ul class="list-group">
                                         <li class="list-group-item categoria" aria-current="true">Geral</li>
-                                        <li class="list-group-item plano">Afresp</li>
+                                        <li class="list-group-item plano Afresp">Afresp</li>
                                     </ul>
 
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item" id="AccordionAllianz">
+                        <div class="accordion-item" id="Allianz">
                             <!--Allianz-->
                             <h2 class="accordion-header" id="headingAllianz">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -231,21 +315,21 @@
                                             Maxi / Special /
                                             Superieur / Ampliado / Essencial / Qualite / Excellence / Completo /
                                             Exclusivo</li>
-                                        <li class="list-group-item plano"> Ampliado </li>
-                                        <li class="list-group-item plano"> Basic </li>
-                                        <li class="list-group-item plano"> Completo </li>
-                                        <li class="list-group-item plano"> Essencial </li>
-                                        <li class="list-group-item plano"> Excelence </li>
-                                        <li class="list-group-item plano"> Exclusivo </li>
-                                        <li class="list-group-item plano"> Maxi </li>
-                                        <li class="list-group-item plano"> Qualite </li>
-                                        <li class="list-group-item plano"> Special </li>
-                                        <li class="list-group-item plano"> Superieur </li>
+                                        <li class="list-group-item plano Allianz"> Ampliado </li>
+                                        <li class="list-group-item plano Allianz"> Basic </li>
+                                        <li class="list-group-item plano Allianz"> Completo </li>
+                                        <li class="list-group-item plano Allianz"> Essencial </li>
+                                        <li class="list-group-item plano Allianz"> Excelence </li>
+                                        <li class="list-group-item plano Allianz"> Exclusivo </li>
+                                        <li class="list-group-item plano Allianz"> Maxi </li>
+                                        <li class="list-group-item plano Allianz"> Qualite </li>
+                                        <li class="list-group-item plano Allianz"> Special </li>
+                                        <li class="list-group-item plano Allianz"> Superieur </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item" id="AccordionBRDistribuidora">
+                        <div class="accordion-item" id="BRDistribuidora">
                             <!-- BR Distribuidora-->
                             <h2 class="accordion-header" id="headingBRDistribuidora">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -259,12 +343,12 @@
                                 <div class="accordion-body">
                                     <ul class="list-group">
                                         <li class="list-group-item categoria" aria-current="true">Geral</li>
-                                        <li class="list-group-item plano"> BR Distribuidora </li>
+                                        <li class="list-group-item plano BRDistribuidora"> BR Distribuidora </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item" id="AccordionBradescoSaude">
+                        <div class="accordion-item" id="BradescoSaude">
                             <!--Bradesco Saude-->
                             <h2 class="accordion-header" id="headingBradescoSaude">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -277,93 +361,95 @@
                                 aria-labelledby="headingBradescoSaude" data-bs-parent="#accordiBradescoSaudexample">
                                 <div class="accordion-body">
                                     <ul class="list-group">
-                                        <li class="list-group-item categoria" aria-current="true">Empresarial
+                                        <li class="list-group-item categoria" aria-current="true">Bradesco Saúde:
+                                            Empresarial
                                             / Individual
                                         </li>
-                                        <li class="list-group-item plano"> ABN Amro Top </li>
-                                        <li class="list-group-item plano"> Embraer Exclusivo </li>
-                                        <li class="list-group-item plano"> Embraer Nacional </li>
-                                        <li class="list-group-item plano"> Embraer Plus </li>
-                                        <li class="list-group-item plano"> Embraer Select </li>
-                                        <li class="list-group-item plano"> Fleury </li>
-                                        <li class="list-group-item plano"> Int ABB </li>
-                                        <li class="list-group-item plano"> Int Emp Global </li>
-                                        <li class="list-group-item plano"> Int Emp Ideal </li>
-                                        <li class="list-group-item plano"> Int Emp Master </li>
-                                        <li class="list-group-item plano"> Int Emp Multi Saúde </li>
-                                        <li class="list-group-item plano"> Int Emp Multi Top </li>
-                                        <li class="list-group-item plano"> Int Emp Plus </li>
-                                        <li class="list-group-item plano"> Int Emp Top </li>
-                                        <li class="list-group-item plano"> Int Part Multi Top </li>
-                                        <li class="list-group-item plano"> Int Part Top </li>
-                                        <li class="list-group-item plano"> Integrada Top Empresarial </li>
-                                        <li class="list-group-item plano"> internacional </li>
-                                        <li class="list-group-item plano"> Nac ABB </li>
-                                        <li class="list-group-item plano"> Nac Banco Real Standard </li>
-                                        <li class="list-group-item plano"> Nac BR Master </li>
-                                        <li class="list-group-item plano"> Nac BR Top </li>
-                                        <li class="list-group-item plano"> Nac Braskem </li>
-                                        <li class="list-group-item plano"> Nac CNS </li>
-                                        <li class="list-group-item plano"> Nac Emp Exclusivo </li>
-                                        <li class="list-group-item plano"> Nac Emp Global </li>
-                                        <li class="list-group-item plano"> Nac Emp Ideal </li>
-                                        <li class="list-group-item plano"> Nac Emp Multi Saúde </li>
-                                        <li class="list-group-item plano"> Nac Emp Multi Top </li>
-                                        <li class="list-group-item plano"> Nac Emp Plus </li>
-                                        <li class="list-group-item plano"> Nac Emp Standard </li>
-                                        <li class="list-group-item plano"> Nac Emp Top </li>
-                                        <li class="list-group-item plano"> Nac Emp Top Silver </li>
-                                        <li class="list-group-item plano"> Nac Especial </li>
-                                        <li class="list-group-item plano"> Nac Integral </li>
-                                        <li class="list-group-item plano"> Nac NSN Plus </li>
-                                        <li class="list-group-item plano"> Nac Part Global </li>
-                                        <li class="list-group-item plano"> Nac Part Multi Saúde </li>
-                                        <li class="list-group-item plano"> Nac Part Multi Top </li>
-                                        <li class="list-group-item plano"> Nac Part Plus </li>
-                                        <li class="list-group-item plano"> Nac Part Top </li>
-                                        <li class="list-group-item plano"> Nac Pirelli 18 </li>
-                                        <li class="list-group-item plano"> Nac Santander Master </li>
-                                        <li class="list-group-item plano"> Nac Santander Standard </li>
-                                        <li class="list-group-item plano"> Nac Santander Top </li>
-                                        <li class="list-group-item plano"> Nac Saúde Bradesco </li>
-                                        <li class="list-group-item plano"> Nac Siemens </li>
-                                        <li class="list-group-item plano"> Nac TIM </li>
-                                        <li class="list-group-item plano"> Nac Top </li>
-                                        <li class="list-group-item plano"> Nac White Martins </li>
-                                        <li class="list-group-item plano"> Nacional </li>
-                                        <li class="list-group-item plano"> Nacional Flex Empresarial </li>
-                                        <li class="list-group-item plano"> Nacional Flex Particular </li>
-                                        <li class="list-group-item plano"> Nacional IBM </li>
-                                        <li class="list-group-item plano"> Perfil Empresarial </li>
-                                        <li class="list-group-item plano"> Perfil Particular </li>
-                                        <li class="list-group-item plano"> Personal IX </li>
-                                        <li class="list-group-item plano"> Pref Emp Multi Saúde </li>
-                                        <li class="list-group-item plano"> Pref Emp Multi Top </li>
-                                        <li class="list-group-item plano"> Pref Emp Plus </li>
-                                        <li class="list-group-item plano"> Pref Emp Standard </li>
-                                        <li class="list-group-item plano"> Pref Emp Top </li>
-                                        <li class="list-group-item plano"> Pref Part Multi Top </li>
-                                        <li class="list-group-item plano"> Pref Part Plus </li>
-                                        <li class="list-group-item plano"> Pref Part Top </li>
-                                        <li class="list-group-item plano"> Pref RPP 16 17 18 </li>
-                                        <li class="list-group-item plano"> Pref Santander Standard </li>
-                                        <li class="list-group-item plano"> Premium </li>
-                                        <li class="list-group-item plano"> Rede RSC Ideal </li>
-                                        <li class="list-group-item plano"> Rede RSC Nacional </li>
-                                        <li class="list-group-item plano"> Santander Emp Standard </li>
-                                        <li class="list-group-item plano"> Santander Emp Top Bronze Standard </li>
-                                        <li class="list-group-item plano"> Santander Emo Top Ouro </li>
-                                        <li class="list-group-item plano"> Santander Emp Top Prata </li>
-                                        <li class="list-group-item plano"> Saúde Ideal 1 </li>
-                                        <li class="list-group-item plano"> Sistel Saúde Top </li>
-                                        <li class="list-group-item plano"> White Martins Exclusivo </li>
-                                        <li class="list-group-item plano"> White Martins Integrado </li>
+                                        <li class="list-group-item plano BradescoSaude"> ABN Amro Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Embraer Exclusivo </li>
+                                        <li class="list-group-item plano BradescoSaude"> Embraer Nacional </li>
+                                        <li class="list-group-item plano BradescoSaude"> Embraer Plus </li>
+                                        <li class="list-group-item plano BradescoSaude"> Embraer Select </li>
+                                        <li class="list-group-item plano BradescoSaude"> Fleury </li>
+                                        <li class="list-group-item plano BradescoSaude"> Int ABB </li>
+                                        <li class="list-group-item plano BradescoSaude"> Int Emp Global </li>
+                                        <li class="list-group-item plano BradescoSaude"> Int Emp Ideal </li>
+                                        <li class="list-group-item plano BradescoSaude"> Int Emp Master </li>
+                                        <li class="list-group-item plano BradescoSaude"> Int Emp Multi Saúde </li>
+                                        <li class="list-group-item plano BradescoSaude"> Int Emp Multi Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Int Emp Plus </li>
+                                        <li class="list-group-item plano BradescoSaude"> Int Emp Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Int Part Multi Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Int Part Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Integrada Top Empresarial </li>
+                                        <li class="list-group-item plano BradescoSaude"> internacional </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac ABB </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Banco Real Standard </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac BR Master </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac BR Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Braskem </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac CNS </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Emp Exclusivo </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Emp Global </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Emp Ideal </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Emp Multi Saúde </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Emp Multi Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Emp Plus </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Emp Standard </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Emp Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Emp Top Silver </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Especial </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Integral </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac NSN Plus </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Part Global </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Part Multi Saúde </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Part Multi Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Part Plus </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Part Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Pirelli 18 </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Santander Master </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Santander Standard </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Santander Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Saúde Bradesco </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Siemens </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac TIM </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nac White Martins </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nacional </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nacional Flex Empresarial </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nacional Flex Particular </li>
+                                        <li class="list-group-item plano BradescoSaude"> Nacional IBM </li>
+                                        <li class="list-group-item plano BradescoSaude"> Perfil Empresarial </li>
+                                        <li class="list-group-item plano BradescoSaude"> Perfil Particular </li>
+                                        <li class="list-group-item plano BradescoSaude"> Personal IX </li>
+                                        <li class="list-group-item plano BradescoSaude"> Pref Emp Multi Saúde </li>
+                                        <li class="list-group-item plano BradescoSaude"> Pref Emp Multi Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Pref Emp Plus </li>
+                                        <li class="list-group-item plano BradescoSaude"> Pref Emp Standard </li>
+                                        <li class="list-group-item plano BradescoSaude"> Pref Emp Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Pref Part Multi Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Pref Part Plus </li>
+                                        <li class="list-group-item plano BradescoSaude"> Pref Part Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> Pref RPP 16 17 18 </li>
+                                        <li class="list-group-item plano BradescoSaude"> Pref Santander Standard </li>
+                                        <li class="list-group-item plano BradescoSaude"> Premium </li>
+                                        <li class="list-group-item plano BradescoSaude"> Rede RSC Ideal </li>
+                                        <li class="list-group-item plano BradescoSaude"> Rede RSC Nacional </li>
+                                        <li class="list-group-item plano BradescoSaude"> Santander Emp Standard </li>
+                                        <li class="list-group-item plano BradescoSaude"> Santander Emp Top Bronze
+                                            Standard </li>
+                                        <li class="list-group-item plano BradescoSaude"> Santander Emo Top Ouro </li>
+                                        <li class="list-group-item plano BradescoSaude"> Santander Emp Top Prata </li>
+                                        <li class="list-group-item plano BradescoSaude"> Saúde Ideal 1 </li>
+                                        <li class="list-group-item plano BradescoSaude"> Sistel Saúde Top </li>
+                                        <li class="list-group-item plano BradescoSaude"> White Martins Exclusivo </li>
+                                        <li class="list-group-item plano BradescoSaude"> White Martins Integrado </li>
 
                                     </ul>
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item" id="AccordionCaixaSeguradora">
+                        <div class="accordion-item" id="CaixaSeguradora">
                             <!--Caixa Seguradora-->
                             <h2 class="accordion-header" id="headingCaixaSeguradora">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -384,7 +470,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="accordion-item" id="AccordionCarePlus">
+                        <div class="accordion-item" id="CarePlus">
                             <!--CarePlus-->
                             <h2 class="accordion-header" id="headingCarePlus">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -420,12 +506,46 @@
 
     <script>
 
+        class Foo {
+           constructor(filtro){
+               this.filtrado = filtro;
+           }
+           setFiltrado(filtro){
+            this.filtrado = filtro;
+           }
+
+            getFiltrado() {
+                return this.filtrado;
+            }
+            
+        }
+        
+        filtra = new Foo("plano");
+
+        function contaLetras() {
+            
+            var input
+            input = document.getElementById('pesquisa').value.toLowerCase();
+            if (input.length < 3) {
+                document.getElementById('msgErro').style.visibility = "visible";
+                document.querySelector("#divResultado").style.display = "none";
+            } else {
+                document.getElementById('msgErro').style.visibility = "hidden";
+            }
+            console.log(filtra);
+           
+        }
+
         function esconde(el) {
             const accordions = document.getElementsByClassName('accordion-item');
             for (let i = 0; i < accordions.length; i++) {
                 accordions[i].style.display = "none";
             }
+           
+            filtra.setFiltrado(el);
             document.getElementById(el).style.display = "";
+            pesquisaConvenio();
+            console.log(filtra);
         }
 
         function mostraTodos() {
@@ -433,49 +553,75 @@
             for (let i = 0; i < accordions.length; i++) {
                 accordions[i].style.display = "";
             }
-
+           filtra.setFiltrado("plano");
+           pesquisaConvenio();
         }
-
+        
 
         function pesquisaConvenio() {
+            let input, x, newFilteredUl, newLi, pai, primeiroFilho, newPai, pesquisa;
+           
+            input = document.getElementById('pesquisa').value.toLowerCase();
 
-            let input = document.getElementById('pesquisa').value;
-            input = input.toLowerCase();
+            if (input.length >= 3) {
 
-            if (input) {
+
+
                 document.querySelector("#divResultado").style.display = "";
-                let x = document.getElementsByClassName('plano');
-                var newFilteredUl = document.createElement('ul');
-                var paiLi;
-                var newLi;
+                document.querySelector("#resultado").innerText = "";
+                x = document.getElementsByClassName(filtra.getFiltrado());
+                
+                newFilteredUl = document.createElement('ul');
+                newFilteredUl.classList.add("list-group");
+
+
                 for (i = 0; i < x.length; i++) {
-                    let pai = x[i].parentElement;
+
+
                     if (!x[i].innerHTML.toLowerCase().includes(input)) {
 
-                        document.querySelector('#resultado').innerHTML = "";
+                        document.querySelector('#resultado').innerText = "";
 
                     }
                     else {
 
-                        pai.style.display = "";
-                        x[i].style.display = "";
-                        paiLi = document.createElement('li');
+
+
                         newLi = document.createElement('li');
-                        newLi = x[i];
-                        paiLi = pai;
-                        newFilteredUl.appendChild(pai);
+                        primeiroFilho = document.createElement('li');
+                        newLi.innerHTML = x[i].innerHTML;
+                        pai = x[i].parentElement;
+                        primeiroFilho.innerHTML = pai.firstElementChild.innerHTML;
+                        primeiroFilho.classList.add("list-group-item", "categoria");
+                        newLi.classList.add("list-group-item");
+                        newFilteredUl.appendChild(primeiroFilho);
                         newFilteredUl.appendChild(newLi);
+
                     }
                 }
 
-                document.querySelector('#resultado').appendChild(newFilteredUl);
-            } else {
-                document.querySelector("#divResultado").style.display = "none";
-                document.querySelector('#resultado').innerHTML = "";
 
+
+                document.querySelector('#resultado').appendChild(newFilteredUl);
+
+                input = null;
+                x = null;
+                newFilteredUl = null;
+
+                newLi = null;
+
+
+
+            } else {
+                input = null;
+                x = null;
+                newFilteredUl = null;
+
+                newLi = null;
+                document.querySelector("#resultado").innerText = "";
+                document.querySelector("#divResultado").style.display = "none";
             }
         }
-
 
 
 
