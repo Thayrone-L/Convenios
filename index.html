@@ -601,44 +601,51 @@
                         </div>
                         <div class="accordion-item" id="CNENIPEN">
                             <!--CNEN-IPEN-->
-                            <h2 class="accordion-header" id="headingCNEN-IPEN">
+                            <h2 class="accordion-header" id="headingCNENIPEN">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseCNENIPEN" aria-expanded="false"
                                     aria-controls="collapseCNENIPEN">
                                     CNEN-IPEN
                                 </button>
                             </h2>
-                            <div id="collapseCNEN-IPEN" class="accordion-collapse collapse"
-                                aria-labelledby="headingCNENIPEN" data-bs-parent="#accordionCNEN-IPENexample">
+                            <div id="collapseCNENIPEN" class="accordion-collapse collapse"
+                                aria-labelledby="headingCNENIPEN" data-bs-parent="#accordionCNENIPENexample">
                                 <div class="accordion-body">
                                     <ul class="list-group">
-                                        <li class="list-group-itemcategoria" aria-current="true">CNEN-IPEN: Geral </li>
+                                        <li class="list-group-item categoria" aria-current="true">CNEN-IPEN: Geral </li>
                                         <li class="list-group-item plano CNENIPEN"> CNEN-IPEN </li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item" id="CNUIntercambio">
-                            <!--CNU-Intercâmbio-->
+                            <!--CNUIntercambio-->
                             <h2 class="accordion-header" id="headingCNUIntercambio">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#collapseCNUIntercambio" aria-expanded="false"
-                                    aria-controls="collapseCNU-Intercambio">
+                                    aria-controls="collapseCNUIntercambio">
                                     CNU-Intercâmbio
                                 </button>
                             </h2>
-                            <div id="collapseCNU-Intercambio" class="accordion-collapse collapse"
+                            <div id="collapseCNUIntercambio" class="accordion-collapse collapse"
                                 aria-labelledby="headingCNUIntercambio"
-                                data-bs-parent="#accordionCNU-Intercambioexample">
+                                data-bs-parent="#accordionCNUIntercambioexample">
                                 <div class="accordion-body">
                                     <ul class="list-group">
                                         <li class="list-group-item categoria" aria-current="true">CNU-Intercâmbio: Geral
+
                                         </li>
+
                                         <li class="list-group-item plano CNUIntercambio "> CNU-Intercâmbio </li>
+
+
+
+
                                     </ul>
                                 </div>
                             </div>
                         </div>
+
                         <div class="accordion-item" id="CNUMatriz">
                             <!--CNU-Matriz-->
                             <h2 class="accordion-header" id="headingCNUMatriz">
@@ -648,12 +655,14 @@
                                     CNU-Matriz
                                 </button>
                             </h2>
-                            <div id="collapseCNU-Matriz" class="accordion-collapse collapse"
+                            <div id="collapseCNUMatriz" class="accordion-collapse collapse"
                                 aria-labelledby="headingCNUMatriz" data-bs-parent="#accordionCNUMatrizexample">
                                 <div class="accordion-body">
                                     <ul class="list-group">
                                         <li class="list-group-item categoria" aria-current="true">CNU-Matriz: Geral
+
                                         </li>
+
                                         <li class="list-group-item plano CNUMatriz"> Absoluto Nacional </li>
                                         <li class="list-group-item plano CNUMatriz"> Absoluto Nacional ADS </li>
                                         <li class="list-group-item plano CNUMatriz"> Absoluto Nacional Qualicorp </li>
@@ -676,6 +685,9 @@
                                         <li class="list-group-item plano CNUMatriz"> Superior Nacional ADS </li>
                                         <li class="list-group-item plano CNUMatriz"> Superior Nacional Qualicorp </li>
                                         <li class="list-group-item plano CNUMatriz"> Superior Regional São Paulo </li>
+
+
+
 
                                     </ul>
                                 </div>
@@ -2302,7 +2314,7 @@
                 }
 
 
-                console.log(cont);
+                
                 document.querySelector('#resultado').appendChild(newFilteredUl);
                 if (cont == 0) {
                     var cont2 = 0;
@@ -2322,7 +2334,7 @@
                             }
                             else {
 
-                                console.log(tenta2string);
+                                
                                 cont2 = cont2 + 1;
                                 newLi = document.createElement('li');
                                 primeiroFilho = document.createElement('li');
@@ -2338,6 +2350,7 @@
                         }
 
                         document.querySelector('#resultado').appendChild(newFilteredUl);
+                        console.log(cont2+"esse");
                         if (cont2 == 0) {
                             document.getElementById('msgResultado2').style.visibility = "hidden";
                             document.getElementById('msgResultado').style.visibility = "visible";
