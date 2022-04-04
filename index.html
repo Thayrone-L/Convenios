@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -68,6 +69,7 @@
 
         svg:hover,
         :focus path {
+            fill: #ffffff;
             animation: go-back 1s infinite alternate ease;
         }
 
@@ -75,6 +77,20 @@
             border: 1px solid #000000;
             border-radius: 5px;
         }
+
+        #back-to-top {
+            position: fixed;
+            bottom: 50px;
+            right: 50px;
+            z-index: 5;
+
+        }
+
+        .setaTopo {
+            font-size: 30px;
+            color: white;
+        }
+
 
         @keyframes go-back {
             from {
@@ -90,6 +106,21 @@
             }
         }
     </style>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, 
+        then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+        </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+        </script>
+
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+        </script>
     <title>Consulta de Convenios</title>
 </head>
 
@@ -259,6 +290,12 @@
                 </div>
             </div>
         </div>
+
+        <button id="back-to-top" onclick="topo()" class="btn btn-pesquisa">
+
+            <ion-icon class="setaTopo" name="arrow-up-outline"></ion-icon>
+
+        </button>
 
         <div class="row g-3" id="divResultado" style=" display:none">
             <div class="col">
@@ -2322,11 +2359,28 @@
             }
         }
 
+        function topo() {
+
+            window.scrollTo(0, 0);
+
+
+        }
+
 
 
     </script>
+    <script>
+        $(document).ready(function () {
+            if ($('#back-to-top').click(function () {
+                $('.collapse').collapse('hide');
+            }));
 
+        });
 
+    </script>
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </body>
 
 </html>
